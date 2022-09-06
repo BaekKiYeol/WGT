@@ -1,6 +1,6 @@
 # WGT (Where are you going today?) 😋
 + 매장 웨이팅 등록 및 소규모 SNS 서비스 제공 사이트
-+ 2022.8.8 ~ 2022.8.22
++ 2022.8.8 ~ 2022.8.27
 + 모바일 인터페이스
 ## 팀 구성
 + 총 5명 ( [본인](https://github.com/BaekKiYeol) [한태우](https://github.com/workhan0918) [이태영](https://github.com/wed456) [박상규](https://github.com/parkSangGyu98) [이성호](https://github.com/LeeSeongHo7984) )
