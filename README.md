@@ -364,11 +364,11 @@
   		@GetMapping("/board/update")
 		  public String updateget(@RequestParam("number") int number, MultipartFile file, HttpServletRequest request,
 			HttpSession session, Model model, Board board) {
-		  String userId = (String) session.getAttribute("userId");
-		  String bnsNum = (String) session.getAttribute("bnsNum");
-		  model.addAttribute("shop", service2.findShopByBnsNum(bnsNum).getShopName());
-		  model.addAttribute("board", service.searchByNumber(number));
-		  return "board/update";
+		  	String userId = (String) session.getAttribute("userId");
+		  	String bnsNum = (String) session.getAttribute("bnsNum");
+		  	model.addAttribute("shop", service2.findShopByBnsNum(bnsNum).getShopName());
+		  	model.addAttribute("board", service.searchByNumber(number));
+		  	return "board/update";
 		  }
   
   
@@ -379,32 +379,32 @@
   
   		@GetMapping("/board/delete")
 		public String deleteGet(@RequestParam("number") int number, Model model, HttpSession session, Board board) {
-		  board = service.searchByNumber(number);
-		  String imgname = board.getImgname(); // board 선언, imgname-board 객체변환
+			board = service.searchByNumber(number);
+		 	String imgname = board.getImgname(); // board 선언, imgname-board 객체변환
 
-		  String filePath = "C:\\wgt\\Where-are-you-going-today\\wgt\\src\\main\\webapp\\resources\\board\\img\\upload"
+			String filePath = "C:\\wgt\\Where-are-you-going-today\\wgt\\src\\main\\webapp\\resources\\board\\img\\upload"
 				+ imgname + ".jpg";
-		  File file = new File(filePath);
-		  // 파일이 존재하는지 체크 존재할경우 true, 존재하지않을경우 false
-		  if (file.exists()) {
+			File file = new File(filePath);
+			// 파일이 존재하는지 체크 존재할경우 true, 존재하지않을경우 false
+			if (file.exists()) {
 			// 파일을 삭제합니다.
 			session.removeAttribute(imgname);
 			file.delete();
 			System.out.println("파일을 삭제하였습니다.");
-		  } else {
+			} else {
 			System.out.println("파일이 존재하지 않습니다.");
-		  }
-		  service.delete(number, imgname);
+			}
+			service.delete(number, imgname);
 
-		  boolean ownerchk = false;
-		  if (session.getAttribute("dbOwner") == null) {
+			boolean ownerchk = false;
+			if (session.getAttribute("dbOwner") == null) {
 			model.addAttribute("ownerchk", ownerchk);
 			return "redirect:/board/mypage";
-		  } else {
+			} else {
 			model.addAttribute("ownerchk", ownerchk);
 			return "redirect:/board/home";
 		  	}
-		  }
+		}
   
   
     + 게시판 검색 기능
