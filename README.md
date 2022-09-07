@@ -359,8 +359,7 @@
     + 게시판 수정 기능
     1. 유저와 점주의 입장이 다르기 때문에 if문을 사용하여 jsp에 c:if문으로 전달
 
-	```
-		BoardController 일부
+	```	BoardController 일부
 		
   		  @GetMapping("/board/update")
 		  public String updateget(@RequestParam("number") int number, MultipartFile file, HttpServletRequest request,
@@ -376,8 +375,7 @@
     + 게시판 삭제 기능
     1. 게시글 작성시 고유 번호를 같이 입력하여 삭제시 그 번호 게시글만 삭제되게 실행
   
-  	```
-		BoardController 일부
+  	```	BoardController 일부
   
   		  @GetMapping("/board/delete")
 		  public String deleteGet(@RequestParam("number") int number, Model model, HttpSession session, Board board) {
@@ -413,8 +411,7 @@
     1. 게시글 검색시 조회된 게시글이 없으면 오류 발생
     2. 그래서 dao부분에서 try catch 구문으로 오류 해결
     
-    	```
-		BoardController 일부
+    	```	BoardController 일부
 		
 		@GetMapping("/board/search")
 		public String searchlist(HttpSession session, Model model) {
@@ -433,8 +430,7 @@
     
     + 게시판 검색 기능(dao 부분)
 
-	```
-		BoardDao 일부
+	```	BoardDao 일부
 	
 		public List<Board> search(String title, String bnsNum) {
 			String sql = "SELECT * FROM Board WHERE title like '%" + title + "%' AND businessNumber = ? ORDER BY regDate DESC";
