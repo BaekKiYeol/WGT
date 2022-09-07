@@ -360,7 +360,7 @@
     1. 유저와 점주의 입장이 다르기 때문에 if문을 사용하여 jsp에 c:if문으로 전달
   
 		BoardController 일부
-		
+	```		
   		  @GetMapping("/board/update")
 		  public String updateget(@RequestParam("number") int number, MultipartFile file, HttpServletRequest request,
 			HttpSession session, Model model, Board board) {
@@ -370,7 +370,7 @@
 		  	model.addAttribute("board", service.searchByNumber(number));
 		  	return "board/update";
 		  }
-  
+	```
   
     + 게시판 삭제 기능
     1. 게시글 작성시 고유 번호를 같이 입력하여 삭제시 그 번호 게시글만 삭제되게 실행
