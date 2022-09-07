@@ -413,18 +413,18 @@
     
                 BoardController 일부
 		
-		  @GetMapping("/board/search")
-		  public String searchlist(HttpSession session, Model model) {
+		@GetMapping("/board/search")
+		public String searchlist(HttpSession session, Model model) {
 			return "board/search";
-		  }
+		}
 
-		  @PostMapping("/board/search")
-		  public String getsearchlist(Board board, Model model, HttpSession session) {
+		@PostMapping("/board/search")
+		public String getsearchlist(Board board, Model model, HttpSession session) {
 			String bnsNum = (String) session.getAttribute("bnsNum");
 			List<Board> list = service.search(board.getTitle(), bnsNum);		
 			model.addAttribute("list", list);	
 			return "board/search";
-		  }
+		}
 	
     
 + 게시판 검색 기능(dao 부분)
