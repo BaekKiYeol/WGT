@@ -435,6 +435,7 @@
 		return "board/search";
 	}
     
++ 게시판 검색 기능(dao 부분)
     	//제목으로 게시글 찾기
 	public List<Board> search(String title, String bnsNum) {
 		String sql = "SELECT * FROM Board WHERE title like '%" + title + "%' AND businessNumber = ? ORDER BY regDate DESC";
@@ -473,7 +474,7 @@
   
   ### 메인 화면
   
-  ![image]![image](https://user-images.githubusercontent.com/103983364/188773568-46903be6-05aa-490d-a140-12cbf6a2f569.png)
+  ![image](https://user-images.githubusercontent.com/103983364/188773736-0277e635-80ec-4be6-890a-2e085b4fbb13.png)
   
   ### 우측상단 버튼
   
