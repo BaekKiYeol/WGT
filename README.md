@@ -493,7 +493,7 @@
   ### SNS
   
   ![image](https://user-images.githubusercontent.com/103983349/186072136-a9007828-932a-4401-b720-b15b598ecbb9.png)
-  ![image](https://user-images.githubusercontent.com/103983349/186072156-878baa23-ff59-40a1-9892-bfb1d6fe3999.png)
+  ![image](https://user-images.githubusercontent.com/103983364/188775981-da5ccbb8-7c44-42a9-aa03-eaaa5de22890.png)
 
   
   ### 게시글 작성
