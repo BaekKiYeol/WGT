@@ -356,6 +356,98 @@
                 }
                             
 
++ 게시판 수정 기능
+  1. 유저와 점주의 입장이 다르기 때문에 if문을 사용하여 jsp에 c:if문으로 전달
+  
+  	@GetMapping("/board/update")
+	public String updateget(@RequestParam("number") int number, MultipartFile file, HttpServletRequest request,
+			HttpSession session, Model model, Board board) {
+		String userId = (String) session.getAttribute("userId");
+		String bnsNum = (String) session.getAttribute("bnsNum");
+		model.addAttribute("shop", service2.findShopByBnsNum(bnsNum).getShopName());
+		model.addAttribute("board", service.searchByNumber(number));
+		return "board/update";
+	}
+  
+  + 게시판 삭제 기능
+  1. 게시글 작성시 고유 번호를 같이 입력하여 삭제시 그 번호 게시글만 삭제되게 실행
+  
+  @GetMapping("/board/delete")
+	public String deleteGet(@RequestParam("number") int number, Model model, HttpSession session, Board board) {
+		board = service.searchByNumber(number);
+		String imgname = board.getImgname(); // board 선언, imgname-board 객체변환
+
+		String filePath = "C:\\wgt\\Where-are-you-going-today\\wgt\\src\\main\\webapp\\resources\\board\\img\\upload"
+				+ imgname + ".jpg";
+		File file = new File(filePath);
+
+		System.out.println(number);
+		System.out.println(file);
+		System.out.println(service.searchByNumber(number));
+    
+		// 파일이 존재하는지 체크 존재할경우 true, 존재하지않을경우 false
+		if (file.exists()) {
+			// 파일을 삭제합니다.
+			session.removeAttribute(imgname);
+			file.delete();
+			System.out.println("파일을 삭제하였습니다.");
+		} else {
+			System.out.println("파일이 존재하지 않습니다.");
+		}
+		service.delete(number, imgname);
+
+		boolean ownerchk = false;
+		if (session.getAttribute("dbOwner") == null) {
+			model.addAttribute("ownerchk", ownerchk);
+			return "redirect:/board/mypage";
+		} else {
+			model.addAttribute("ownerchk", ownerchk);
+			return "redirect:/board/home";
+		}
+	}
+  
+    + 게시판 검색 기능
+    1. 게시글 검색시 조회된 게시글이 없으면 오류 발생
+    2. 그래서 dao부분에서 try catch 구문으로 오류 해결
+    
+    	// 검색 화면
+	@GetMapping("/board/search")
+	public String searchlist(HttpSession session, Model model) {
+		return "board/search";
+	}
+
+	@PostMapping("/board/search")
+	public String getsearchlist(Board board, Model model, HttpSession session) {
+		String bnsNum = (String) session.getAttribute("bnsNum");
+		List<Board> list = service.search(board.getTitle(), bnsNum);
+		
+		System.out.println(service.read(board.getBusinessNumber()));
+		// 점주일 때만 삭제 보이게 하는 로직
+		boolean ownerchk = false;
+		if (session.getAttribute("dbOwner") == null) { // 유저일 때
+			model.addAttribute("ownerchk", ownerchk);
+		} else {
+			ownerchk = true;
+			model.addAttribute("ownerchk", ownerchk); // 점주일 때
+		}
+		
+		model.addAttribute("list", list);	
+		return "board/search";
+	}
+    
+    	//제목으로 게시글 찾기
+	public List<Board> search(String title, String bnsNum) {
+		String sql = "SELECT * FROM Board WHERE title like '%" + title + "%' AND businessNumber = ? ORDER BY regDate DESC";
+		try {
+			jdbcTemplate.query(sql, new BeanPropertyRowMapper<Board>(Board.class), bnsNum);
+		}catch(EmptyResultDataAccessException e){
+			e.printStackTrace();
+		}
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Board>(Board.class), bnsNum);
+	}
+  
+                            
+
 ## 구현 화면
   ### 로그인
   
@@ -381,7 +473,7 @@
   
   ### 메인 화면
   
-  ![image](https://user-images.githubusercontent.com/103983349/185833612-83dcaa7d-2033-4cdb-bd4f-b5f8e768ccc2.png)
+  ![image]![image](https://user-images.githubusercontent.com/103983364/188773568-46903be6-05aa-490d-a140-12cbf6a2f569.png)
   
   ### 우측상단 버튼
   
