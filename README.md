@@ -490,15 +490,21 @@
   
   ### SNS
   
-  ![image](https://user-images.githubusercontent.com/103983349/186072136-a9007828-932a-4401-b720-b15b598ecbb9.png)
+  ![image](https://user-images.githubusercontent.com/103983364/188776820-620d0518-b83d-4a8e-81b2-3a0ae24bb16f.png)
   ![image](https://user-images.githubusercontent.com/103983364/188775981-da5ccbb8-7c44-42a9-aa03-eaaa5de22890.png)
 
   
   ### 게시글 작성
   
-  ![image](https://user-images.githubusercontent.com/103983349/186072199-8df24539-607a-4c05-9a4f-f70abbffe7bf.png)
+  ![image](https://user-images.githubusercontent.com/103983364/188776885-c5d11624-6a14-4895-af54-5f047065a475.png)
   
   ### 게시글 수정
   
-  ![image](https://user-images.githubusercontent.com/103983349/186072262-191c6f1c-b85d-49eb-b86f-f536e151479a.png)
-  ![image](https://user-images.githubusercontent.com/103983349/186072305-25af9634-5f00-4d6c-9546-4ac71065c1cd.png)
+  ![image](https://user-images.githubusercontent.com/103983364/188776974-d25b8edf-a54d-4db4-b953-788d647c4c2b.png)
+  ![image](https://user-images.githubusercontent.com/103983364/188777031-8fb6b24b-a273-46a2-9c8f-f742957896df.png)
+
+  ### 게시글 검색
+  ![image](https://user-images.githubusercontent.com/103983364/188777198-0070106e-865d-4380-8d1f-f0fc26311c5c.png)
+  ![image](https://user-images.githubusercontent.com/103983364/188777273-35dfdc6c-1050-4eb5-8986-d6e0c90b5ddd.png)
+
+
