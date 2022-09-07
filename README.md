@@ -459,11 +459,9 @@
   ![image](https://user-images.githubusercontent.com/103983349/185832628-fb1b6133-6b11-45df-b7f5-709f252d7018.png)
   ![image](https://user-images.githubusercontent.com/103983349/185832648-05268b9c-9855-4e52-a8b6-20e91609fc1f.png)
   ![image](https://user-images.githubusercontent.com/103983349/185832732-acb66a6c-6ee6-45a5-b16b-eddbd57a9f40.png)
-  ![image](https://user-images.githubusercontent.com/103983349/185832846-88e2738a-e6f9-4726-b1b1-fa768da9e85f.png)
-  ![image](https://user-images.githubusercontent.com/103983349/185832917-53ef22d6-9ed5-414c-a0d6-7bf026f4f2b5.png)
-  ![image](https://user-images.githubusercontent.com/103983349/185832956-02f4a112-6e66-41f5-bc22-57131b28bdd2.png)
-  ![image](https://user-images.githubusercontent.com/103983349/185833147-730194d5-bb5d-4901-9294-4caf0691f49d.png)
-  ![image](https://user-images.githubusercontent.com/103983349/185833159-4fe5325a-27a3-41b0-a3a2-6f96a642360c.png)
+  ![image](https://user-images.githubusercontent.com/103983364/188781623-af3780b0-d3df-4154-ac13-feaa0ccbfdbc.png)
+  ![image](https://user-images.githubusercontent.com/103983364/188781690-c2648715-b5ed-4839-8c89-bf410b745d49.png)
+  ![image](https://user-images.githubusercontent.com/103983364/188781751-0e585744-7ad4-4472-8d85-161b5491b7d6.png)
   
   ### 메인 화면
   
