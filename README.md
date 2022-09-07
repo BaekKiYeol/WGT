@@ -359,10 +359,10 @@
 + 게시판 수정 기능
   1. 유저와 점주의 입장이 다르기 때문에 if문을 사용하여 jsp에 c:if문으로 전달
   
-                  BoardController 일부
-  
-  	@GetMapping("/board/update")
-	public String updateget(@RequestParam("number") int number, MultipartFile file, HttpServletRequest request,
+                BoardController 일부
+		
+  		@GetMapping("/board/update")
+		public String updateget(@RequestParam("number") int number, MultipartFile file, HttpServletRequest request,
 			HttpSession session, Model model, Board board) {
 		String userId = (String) session.getAttribute("userId");
 		String bnsNum = (String) session.getAttribute("bnsNum");
@@ -376,7 +376,7 @@
   
                 BoardController 일부
   
-  	@GetMapping("/board/delete")
+  		@GetMapping("/board/delete")
 		public String deleteGet(@RequestParam("number") int number, Model model, HttpSession session, Board board) {
 		board = service.searchByNumber(number);
 		String imgname = board.getImgname(); // board 선언, imgname-board 객체변환
@@ -409,37 +409,35 @@
     1. 게시글 검색시 조회된 게시글이 없으면 오류 발생
     2. 그래서 dao부분에서 try catch 구문으로 오류 해결
     
-                    BoardController 일부
-		    
-		    
-	@GetMapping("/board/search")
-	public String searchlist(HttpSession session, Model model) {
-		return "board/search";
-	}
+                BoardController 일부
+		     
+		@GetMapping("/board/search")
+		public String searchlist(HttpSession session, Model model) {
+			return "board/search";
+		}
 
-	@PostMapping("/board/search")
-	public String getsearchlist(Board board, Model model, HttpSession session) {
-		String bnsNum = (String) session.getAttribute("bnsNum");
-		List<Board> list = service.search(board.getTitle(), bnsNum);		
-		model.addAttribute("list", list);	
-		return "board/search";
-	}
+		@PostMapping("/board/search")
+		public String getsearchlist(Board board, Model model, HttpSession session) {
+			String bnsNum = (String) session.getAttribute("bnsNum");
+			List<Board> list = service.search(board.getTitle(), bnsNum);		
+			model.addAttribute("list", list);	
+			return "board/search";
+		}
 	
     
 + 게시판 검색 기능(dao 부분)
 
-	BoardDao 일부
+		BoardDao 일부
 	
-	
-	public List<Board> search(String title, String bnsNum) {
-		String sql = "SELECT * FROM Board WHERE title like '%" + title + "%' AND businessNumber = ? ORDER BY regDate DESC";
-		try {
-			jdbcTemplate.query(sql, new BeanPropertyRowMapper<Board>(Board.class), bnsNum);
-		}catch(EmptyResultDataAccessException e){
-			e.printStackTrace();
+		public List<Board> search(String title, String bnsNum) {
+			String sql = "SELECT * FROM Board WHERE title like '%" + title + "%' AND businessNumber = ? ORDER BY regDate DESC";
+			try {
+				jdbcTemplate.query(sql, new BeanPropertyRowMapper<Board>(Board.class), bnsNum);
+			}catch(EmptyResultDataAccessException e){
+				e.printStackTrace();
+			}
+			return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Board>(Board.class), bnsNum);
 		}
-		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Board>(Board.class), bnsNum);
-	}
   
                             
 
