@@ -412,7 +412,6 @@
     2. 그래서 dao부분에서 try catch 구문으로 오류 해결
     
                 BoardController 일부
-		
 		@GetMapping("/board/search")
 		public String searchlist(HttpSession session, Model model) {
 			return "board/search";
