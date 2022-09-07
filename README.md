@@ -417,7 +417,6 @@
 		  public String searchlist(HttpSession session, Model model) {
 		  	return "board/search";
 		  }
-
 		  @PostMapping("/board/search")
 		  public String getsearchlist(Board board, Model model, HttpSession session) {
 			String bnsNum = (String) session.getAttribute("bnsNum");
