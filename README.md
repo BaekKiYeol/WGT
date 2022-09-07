@@ -410,7 +410,7 @@
     + 게시판 검색 기능
     1. 게시글 검색시 조회된 게시글이 없으면 오류 발생
     2. 그래서 dao부분에서 try catch 구문으로 오류 해결
-    
+
     	```	BoardController 일부
 		
 		@GetMapping("/board/search")
