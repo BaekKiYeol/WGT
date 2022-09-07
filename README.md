@@ -425,8 +425,6 @@
 			model.addAttribute("list", list);	
 			return "board/search";
 		}
-	```
-	
     
     + 게시판 검색 기능(dao 부분)
 
