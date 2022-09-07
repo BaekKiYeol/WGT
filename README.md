@@ -361,7 +361,7 @@
   
                 BoardController 일부
 		
-  		@GetMapping("/board/update")
+  		  @GetMapping("/board/update")
 		  public String updateget(@RequestParam("number") int number, MultipartFile file, HttpServletRequest request,
 			HttpSession session, Model model, Board board) {
 		  	String userId = (String) session.getAttribute("userId");
@@ -377,8 +377,8 @@
   
                 BoardController 일부
   
-  		@GetMapping("/board/delete")
-		public String deleteGet(@RequestParam("number") int number, Model model, HttpSession session, Board board) {
+  		  @GetMapping("/board/delete")
+		  public String deleteGet(@RequestParam("number") int number, Model model, HttpSession session, Board board) {
 			board = service.searchByNumber(number);
 		 	String imgname = board.getImgname(); // board 선언, imgname-board 객체변환
 
@@ -413,13 +413,13 @@
     
                 BoardController 일부
 		
-		@GetMapping("/board/search")
-		public String searchlist(HttpSession session, Model model) {
+		  @GetMapping("/board/search")
+		  public String searchlist(HttpSession session, Model model) {
 			return "board/search";
 		}
 
-		@PostMapping("/board/search")
-		public String getsearchlist(Board board, Model model, HttpSession session) {
+		  @PostMapping("/board/search")
+		  public String getsearchlist(Board board, Model model, HttpSession session) {
 			String bnsNum = (String) session.getAttribute("bnsNum");
 			List<Board> list = service.search(board.getTitle(), bnsNum);		
 			model.addAttribute("list", list);	
